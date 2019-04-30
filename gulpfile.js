@@ -5,7 +5,6 @@ const pug = require('gulp-pug');
 const postcss = require('gulp-postcss');
 const purgecss = require('gulp-purgecss');
 const browserSync = require('browser-sync').create();
-const cleanDest = require('gulp-clean-dest');
 
 // Custom PurgeCSS extractor for Tailwind that allows special characters in
 // class names.
@@ -85,16 +84,11 @@ function buildHTML() {
         .pipe(dest('dist'));
 }
 
-function clear(cb) {
-    cleanDest('dist');
-    cb();
-}
-
 function watchFiles() {
     watch('src/**/*.css', cssTask);
     watch('src/**/*.pug', htmlTask);
 }
 
-exports.build = series(clear, buildHTML, buildCSS);
+exports.build = parallel(buildHTML, buildCSS);
 
 exports.default = series(parallel(cssTask, htmlTask), parallel(browserSyncTask, watchFiles));
