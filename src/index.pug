@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        link(rel="stylesheet", href="https://dev.mavo.io/dist/mavo.css")
-        script(src="https://dev.mavo.io/dist/mavo.min.js")
-        link(rel="stylesheet", href="style.css")
-        title Task Manager | Kanbanchi Clone
-    body
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		link(rel="stylesheet", href="https://dev.mavo.io/dist/mavo.css")
+		script(src="https://dev.mavo.io/dist/mavo.min.js")
+		link(rel="stylesheet", href="style.css")
+		title Task Manager | Kanbanchi Clone
+	body
+		main(mv-app="dashboard" mv-plugins="markdown" mv-init="dashboard.json")
+			section(mv-multiple="list" class="max-w-sm mx-8 my-6")
+					header(class="font-thin flex justify-between")
+						h2(property="title")
+						span [count(card)]
+					main
+						article(mv-multiple="card" class="my-4 px-3 py-4 shadow-md rounded" style="background-color: [color];")
+							meta(property="color" mv-edit="#colors")
+
+							section(class="flex justify-between items-center cursor-default")
+								span(mv-multiple="colorTag" mv-initial-items="0")
+								div(class="flex h-6")
+									meta(property="priorityColors" content="[group(low: 'gray', normal: 'green', medium: 'blue', high: 'orange', critical: 'red')]")
+									span(property="priority" mv-edit="#priority" data-first-letter="[uppercase(get(priority, 0))]" class="flex items-center justify-center mx-2 px-2 pl-4 border border-transparent hover:bg-[get(priorityColors, priority)]-100 hover:border-[get(priorityColors, priority)]-300 text-[get(priorityColors, priority)]-500 rounded-full")
+									span(mv-if="count(task) > 0" class="w-20 flex items-center justify-between pr-2 text-sm leading-none border border-green-300 text-green-700 font-medium text-right bg-gray-100 rounded-full" style="background-image: linear-gradient(to right, #c6f6d5 [progress]%, transparent 0);") [progress]%
+
+							section(class="my-2 flex text-sm cursor-default")
+								time(property="startDate" class="mr-3 flex items-center")
+								time(property="dueDate" mv-edit-min="[startDate]" mv-if="startDate" class="[if(dueDate <= $today, 'text-red-600')] flex items-center")
+
+							p(property="text" class="markdown cursor-default")
+
+							section(property="todoList" class="mx-2 my-1")
+								meta(property="progress" content="[round(sum(weight where task.done) / sum(weight) * 100)]")
+								ul
+									li(mv-multiple="task" mv-initial-items="0" class="group")
+										label(class="relative flex items-center")
+											input(property="done" type="checkbox")
+											span(property="title" mv-expressions="{ }" class="{if(done, 'text-gray-700 line-through italic')} markdown h-8 w-full ml-1 px-1 py-1 rounded group-hover:bg-gray-200")
+										div(class="flex items-center mt-2 mr-2 pl-4 opacity-0 group-hover:opacity-100 absolute top-0 right-0 text-gray-600 text-xs")
+											span Weight
+											span(class="h-5 w-5 mx-1 flex items-center justify-center text-center leading-none bg-gray-400 text-gray-700 rounded-full") [weight]
+											input(property="weight" type="range" min="1" max="10" mv-default="1" class="w-20")
+
+							span(mv-multiple="tag" mv-initial-items="0" class="mx-1 my-1 text-xs uppercase cursor-default")
+
+							section(class="mt-2 flex justify-between")
+								span(class="tasks-done flex items-center leading-none cursor-default [if(count(task) = 0, 'opacity-0')]") [count(done)]/[count(task)]
+								span(mv-if="startDate and dueDate" title="Spent time" class="flex items-center leading-none cursor-default") [days($today - startDate)]d
+
+		div(hidden)
+			select(id="priority")
+				option(value="low") Low
+				option(value="normal") Normal
+				option(value="medium") Medium
+				option(value="high") High
+				option(value="critical") Critical
+
+		div(hidden)
+			select(id="colors")
+				option(value="hsl(0, 0%, 100%)" style="background-color: hsl(0, 0%, 100%);")
+				option(value="hsl(16, 16%, 81%)" style="background-color: hsl(16, 16%, 81%);")
+				option(value="hsl(153, 63%, 74%)" style="background-color: hsl(153, 63%, 74%);")
+				option(value="hsl(51, 94%, 75%)" style="background-color: hsl(51, 94%, 75%);")
+				option(value="hsl(179, 69%, 79%)" style="background-color: hsl(179, 69%, 79%);")
+				option(value="hsl(258, 100%, 80%)" style="background-color: hsl(258, 100%, 80%);")
