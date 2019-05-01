@@ -10,19 +10,19 @@ html(lang="en")
 		title Task Manager | Kanbanchi Clone
 	body
 		main(mv-app="dashboard" mv-plugins="markdown" mv-init="dashboard.json")
-			section(mv-multiple="list" class="max-w-sm mx-8 my-6")
+			section(mv-multiple="list" class="max-w-sm overflow-y-scroll mx-8 my-6")
 					header(class="font-thin flex justify-between")
 						h2(property="title")
 						span [count(card)]
 					main
-						article(mv-multiple="card" class="my-4 px-3 py-4 shadow-md rounded" style="background-color: [color];")
-							meta(property="color" mv-edit="#colors")
+						article(mv-multiple="card" class="my-4 px-3 py-4 shadow rounded" style="background-color: [color];")
+							meta(property="color" mv-edit="#colors" title="Choose card color")
 
-							section(class="flex justify-between items-center cursor-default")
-								span(mv-multiple="colorTag" mv-initial-items="0")
+							section(class="flex [if(colorTag, 'justify-between', 'justify-end')] items-center cursor-default")
+								span(property="colorTag" class="relative h-8 px-1 py-2 -ml-3 text-sm leading-tight text-white bg-red-700")
 								div(class="flex h-6")
 									meta(property="priorityColors" content="[group(low: 'gray', normal: 'green', medium: 'blue', high: 'orange', critical: 'red')]")
-									span(property="priority" mv-edit="#priority" title="Priority" data-first-letter="[uppercase(get(priority, 0))]" class="flex items-center justify-center mx-2 px-2 pl-4 [if(priority = 'high' or priority = 'low', 'mr-3', '')] leading-none hover:bg-[get(priorityColors, priority)]-100 text-[get(priorityColors, priority)]-500 rounded-full")
+									span(property="priority" mv-edit="#priority" title="Priority" data-first-letter="[uppercase(get(priority, 0))]" class="flex items-center justify-center mx-2 px-2 pl-4 [if(priority = 'high' or priority = 'low', 'mr-3', '')] leading-none hover:bg-[get(priorityColors, priority)]-100 text-[get(priorityColors, priority)]-600 rounded-full")
 									span(mv-if="count(task) > 0" title="Progress" class="w-18 flex items-center justify-between pr-2 text-sm leading-none border border-green-300 text-green-700 font-medium text-right bg-gray-100 rounded-full" style="background-image: linear-gradient(to right, #c6f6d5 [progress]%, transparent 0);") [progress]%
 
 							section(class="my-2 flex text-sm cursor-default")
@@ -31,17 +31,18 @@ html(lang="en")
 
 							p(property="text" class="markdown cursor-default")
 
-							section(property="todoList" class="mx-2 my-1")
+							section(property="todoList" class="mx-2 ml-3 my-1")
 								meta(property="progress" content="[round(sum(weight where task.done) / sum(weight) * 100)]")
 								ul
 									li(mv-multiple="task" mv-initial-items="0" class="group")
 										label(class="relative flex items-center")
 											input(property="done" type="checkbox")
-											span(property="title" mv-expressions="{ }" class="{if(done, 'text-gray-700 line-through italic')} markdown h-8 w-full ml-1 px-1 py-1 rounded group-hover:bg-gray-200")
-										div(class="flex items-center mt-2 mr-2 pl-4 opacity-0 group-hover:opacity-100 absolute top-0 right-0 text-gray-600 text-xs")
-											span Weight
-											span(class="h-5 w-5 mx-1 flex items-center justify-center text-center leading-none bg-gray-400 text-gray-700 rounded-full") [weight]
+											span(property="title" mv-expressions="{ }" class="{if(done, 'text-gray-700 line-through')} markdown h-8 w-full ml-1 px-1 py-1 rounded group-hover:bg-gray-200")
+										div(class="flex items-center mt-2 mr-2 pl-4 opacity-0 group-hover:opacity-100 absolute top-0 right-0 text-gray-600 text-xs leading-none")
+											span(class="cursor-default") Weight
+											span(class="h-5 w-5 mx-1 flex items-center justify-center text-center leading-none bg-gray-400 text-gray-700 rounded-full cursor-default") [weight]
 											input(property="weight" type="range" min="1" max="10" mv-default="1" class="w-20")
+											div(class="mv-item-bar")
 
 							span(mv-multiple="tag" mv-initial-items="0" class="mx-1 my-1 text-xs uppercase cursor-default")
 
