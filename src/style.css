@@ -12,13 +12,13 @@
 
         &:hover {
             transform: translateX(0);
-            /* @apply border-gray-300 bg-white; */
         }
 
         &::before {
             content: attr(data-first-letter);
             border-radius: 50%;
-            @apply flex items-center justify-center -ml-5 mr-2 leading-none h-6 w-6 border-2 bg-white;
+            border-color: inherit;
+            @apply flex items-center justify-center -ml-5 mr-2 h-6 w-6 bg-white shadow-outline;
         }
     }
 

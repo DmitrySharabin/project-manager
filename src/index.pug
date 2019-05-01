@@ -22,8 +22,8 @@ html(lang="en")
 								span(mv-multiple="colorTag" mv-initial-items="0")
 								div(class="flex h-6")
 									meta(property="priorityColors" content="[group(low: 'gray', normal: 'green', medium: 'blue', high: 'orange', critical: 'red')]")
-									span(property="priority" mv-edit="#priority" data-first-letter="[uppercase(get(priority, 0))]" class="flex items-center justify-center mx-2 px-2 pl-4 border border-transparent hover:bg-[get(priorityColors, priority)]-100 hover:border-[get(priorityColors, priority)]-300 text-[get(priorityColors, priority)]-500 rounded-full")
-									span(mv-if="count(task) > 0" class="w-20 flex items-center justify-between pr-2 text-sm leading-none border border-green-300 text-green-700 font-medium text-right bg-gray-100 rounded-full" style="background-image: linear-gradient(to right, #c6f6d5 [progress]%, transparent 0);") [progress]%
+									span(property="priority" mv-edit="#priority" title="Priority" data-first-letter="[uppercase(get(priority, 0))]" class="flex items-center justify-center mx-2 px-2 pl-4 [if(priority = 'high' or priority = 'low', 'mr-3', '')] leading-none hover:bg-[get(priorityColors, priority)]-100 text-[get(priorityColors, priority)]-500 rounded-full")
+									span(mv-if="count(task) > 0" title="Progress" class="w-18 flex items-center justify-between pr-2 text-sm leading-none border border-green-300 text-green-700 font-medium text-right bg-gray-100 rounded-full" style="background-image: linear-gradient(to right, #c6f6d5 [progress]%, transparent 0);") [progress]%
 
 							section(class="my-2 flex text-sm cursor-default")
 								time(property="startDate" class="mr-3 flex items-center")
