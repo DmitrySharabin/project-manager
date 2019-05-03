@@ -350,6 +350,64 @@ html {
 	}
 }
 
+.markdown {
+    & a {
+        @apply text-blue-600 font-semibold no-underline;
+
+        &:hover {
+            @apply underline;
+        }
+    }
+
+    & h1 {
+        @apply text-2xl;
+    }
+
+    & h2 {
+        @apply text-xl;
+    }
+
+    & h3 {
+        @apply text-lg;
+    }
+
+    & h4 {
+        @apply text-base;
+    }
+
+    & h5 {
+        @apply text-sm;
+    }
+
+    & h6 {
+        @apply text-xs;
+    }
+
+    & ol {
+        @apply list-decimal list-inside;
+    }
+
+    & ul {
+        @apply list-disc list-inside;
+    }
+
+    & code {
+        @apply px-1;
+        @apply text-gray-700 bg-gray-100;
+        @apply rounded;
+        @apply border;
+    }
+
+    & br {
+        content: " ";
+        @apply block mt-2;
+    }
+
+    & img {
+        @apply max-w-full;
+    }
+}
+
 /* Mavo UI */
 
 .mv-add-tag,
