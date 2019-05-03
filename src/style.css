@@ -207,7 +207,7 @@ html {
             border-color: theme('colors.gray.200');
             border-width: 2px;
             color: var(--text);
-            @apply absolute left-0;
+            @apply absolute left-0 top-0;
             @apply w-6 h-6;
             @apply flex items-center justify-center;
             @apply bg-white;
@@ -215,7 +215,7 @@ html {
 
         &::after {
             content: var(--border);
-            @apply absolute left-0;
+            @apply absolute left-0 top-0;
             @apply w-6 h-6;
         }
     }
