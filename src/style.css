@@ -378,7 +378,7 @@ html {
 }
 
 .mv-add-list {
-    align-self: center;
+    align-self: start;
     justify-self: start;
 
     @apply ml-3 mt-3 text-teal-100 bg-teal-600;
