@@ -93,6 +93,10 @@ html {
             @apply bg-indigo-800;
         }
 
+        /* Fix hover issue */
+        &:not(:hover) {
+            display: grid;
+        }
     }
 
     /* Color tag/Priority/Progress section */
@@ -375,7 +379,11 @@ html {
 
 	&::before {
 		content: "#";
-	}
+    }
+
+    & .mv-add {
+
+    }
 }
 
 .markdown {
