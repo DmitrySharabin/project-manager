@@ -26,7 +26,7 @@ html(lang="en")
 
 							section
 								time(property="startDate")
-								time(property="dueDate" mv-edit-min="[startDate]" mv-if="startDate" class="[if(dueDate <= $today, 'text-red-600')]")
+								time(property="dueDate" mv-edit-min="[startDate]" class="[if(dueDate and dueDate <= $today, 'text-red-600', if(!dueDate, 'mv-empty'))]")
 
 							p(property="text" class="markdown")
 
