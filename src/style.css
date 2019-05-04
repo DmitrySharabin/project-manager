@@ -496,6 +496,12 @@ html {
     @apply bg-indigo-900;
 }
 
+.mv-message.mv-deleted {
+    & button:not(.mv-close) {
+        @apply bg-gray-200 border rounded;
+    }
+}
+
 .mv-add-tag,
 .mv-add-task,
 .mv-add-card,
