@@ -142,7 +142,7 @@ html {
         @apply flex justify-between;
         @apply cursor-default;
 
-        & > span:first-child {
+        & > span:not([title="Spent time"]) {
             @apply flex items-center;
 
             /* Checkmark */
@@ -152,7 +152,7 @@ html {
             }
         }
 
-        & > span:last-child {
+        & > span[title="Spent time"] {
             @apply flex items-center;
             @apply leading-none;
 
