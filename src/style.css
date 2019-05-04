@@ -314,34 +314,28 @@ html {
         @apply px-1 py-1;
     }
 
-    /* Weight panel */
-    & > section {
-        grid-row: 2;
-        grid-column: 2;
-        align-self: start;
-        justify-self: end;
-
-        @apply mb-1;
-        @apply flex items-center;
-        @apply text-indigo-800 text-xs leading-none;
-        @apply cursor-default;
-
-        /* Weight */
-        & > span:nth-child(2) {
-            @apply w-5 h-5 mx-1;
-            @apply flex items-center justify-center;
-            @apply text-indigo-200;
-            @apply bg-indigo-800;
-            @apply rounded-full;
-        }
-
-        & > [property="weight"] {
-            @apply w-20 mr-2;
-        }
-    }
-
     & > aside {
         display: contents;
+
+        /* Weight panel */
+        & > section {
+            grid-row: 2;
+            grid-column: 2;
+
+            @apply mb-1;
+            @apply flex items-center;
+            @apply text-indigo-800 text-xs leading-none;
+            @apply cursor-default;
+
+            /* Weight */
+            & > span:nth-child(2) {
+                @apply w-5 h-5 mx-1;
+                @apply flex items-center justify-center;
+                @apply text-indigo-200;
+                @apply bg-indigo-800;
+                @apply rounded-full;
+            }
+        }
 
         /* Item bar */
         & .mv-delete {
@@ -368,7 +362,7 @@ html {
     &:not([mv-mode="edit"]) {
         grid-template-columns: 1.2em 1fr auto;
 
-        & > section {
+        & > aside > section {
             display: none;
         }
     }
