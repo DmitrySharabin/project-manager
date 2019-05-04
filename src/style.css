@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 html {
-    @apply bg-gray-100;
+    @apply pt-8 bg-indigo-100;
 }
 
 [mv-app="dashboard"] {
@@ -13,10 +13,6 @@ html {
     grid-template-rows: auto;
     grid-auto-columns: theme('maxWidth.md');
     grid-auto-flow: column;
-
-    & > .mv-bar {
-        align-self: start;
-    }
 }
 
 [property="list"] {
@@ -36,6 +32,48 @@ html {
         & > span {
             grid-column: -1;
             justify-self: end;
+        }
+    }
+
+    & > aside {
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        align-items: center;
+        justify-items: center;
+
+        @apply mb-4 -mt-2;
+
+        /* Item bar */
+        & .mv-delete {
+            grid-column: 5;
+            grid-row: 1;
+            mask: var(--mv-rubbish-bin);
+            mask-size: cover;
+            @apply w-5 h-5;
+            @apply bg-teal-800;
+        }
+
+        & .mv-drag-handle {
+            grid-column: 1;
+            grid-row: 1;
+            mask: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>');
+            mask-size: cover;
+            @apply w-5 h-5;
+            @apply bg-teal-800;
+        }
+
+        & .mv-add {
+            grid-column: 4;
+            grid-row: 1;
+            mask: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/></svg>');
+            mask-size: cover;
+            @apply w-5 h-5 mr-4;
+            @apply bg-teal-800;
+        }
+
+        /* Fix hover issue */
+        &:not(:hover) {
+            display: grid;
         }
     }
 }
@@ -453,6 +491,11 @@ html {
 
 /* Mavo UI */
 
+[mv-app] .mv-bar {
+    @apply fixed inset-x-0 top-0;
+    @apply bg-indigo-900;
+}
+
 .mv-add-tag,
 .mv-add-task,
 .mv-add-card,
@@ -482,7 +525,7 @@ html {
     align-self: start;
     justify-self: start;
 
-    @apply ml-3 mt-3 text-teal-100 bg-teal-600;
+    @apply ml-3 mt-6 text-teal-100 bg-teal-600;
 
     &:hover {
         @apply bg-teal-500;

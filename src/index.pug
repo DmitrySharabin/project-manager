@@ -9,45 +9,47 @@ html(lang="en")
 		link(rel="stylesheet", href="style.css")
 		title Project Manager | Kanbanchi Clone
 	body
-		main(mv-app="dashboard" mv-plugins="markdown" mv-init="dashboard.json")
+		main(mv-app="dashboard" mv-plugins="markdown" mv-bar="with import export" mv-init="dashboard.json")
+			header(class="mv-bar mv-ui") Dashboard
 			section(mv-multiple="list")
-					header
-						h2(property="title")
-						span [count(card)]
-					main
-						article(mv-multiple="card" style="background-color: [color];")
-							aside(class="mv-item-bar")
-								meta(property="color" mv-edit="#colors" title="Change this card color")
+				aside(class="mv-item-bar")
+				header
+					h2(property="title")
+					span [count(card)]
+				main
+					article(mv-multiple="card" style="background-color: [color];")
+						aside(class="mv-item-bar")
+							meta(property="color" mv-edit="#colors" title="Change this card color")
 
-							section
-								span(property="colorTag")
-								span(property="priority" mv-edit="#priority" title="Priority" data-first-letter="[uppercase(get(priority, 0))]" class="[priority]")
-								span(mv-if="count(task) > 0" title="Progress" style="--progress: [progress]") [progress]%
+						section
+							span(property="colorTag")
+							span(property="priority" mv-edit="#priority" title="Priority" data-first-letter="[uppercase(get(priority, 0))]" class="[priority]")
+							span(mv-if="count(task) > 0" title="Progress" style="--progress: [progress]") [progress]%
 
-							section
-								time(property="startDate")
-								time(property="dueDate" mv-edit-min="[startDate]" class="[if(dueDate and dueDate <= $today, 'text-red-600', if(!dueDate, 'mv-empty'))]")
+						section
+							time(property="startDate")
+							time(property="dueDate" mv-edit-min="[startDate]" class="[if(dueDate and dueDate <= $today, 'text-red-600', if(!dueDate, 'mv-empty'))]")
 
-							p(property="text" class="markdown")
+						p(property="text" class="markdown")
 
-							section(property="todoList")
-								meta(property="progress" content="[round(sum(weight where task.done) / sum(weight) * 100)]")
-								ul
-									li(mv-multiple="task" mv-initial-items="0")
-										label
-											input(property="done" type="checkbox")
-											span(property="title" class="markdown")
-										aside(class="mv-item-bar")
-											section
-												span Weight
-												span [weight]
-												input(property="weight" type="range" min="1" max="10" mv-default="1")
+						section(property="todoList")
+							meta(property="progress" content="[round(sum(weight where task.done) / sum(weight) * 100)]")
+							ul
+								li(mv-multiple="task" mv-initial-items="0")
+									label
+										input(property="done" type="checkbox")
+										span(property="title" class="markdown")
+									aside(class="mv-item-bar")
+										section
+											span Weight
+											span [weight]
+											input(property="weight" type="range" min="1" max="10" mv-default="1")
 
-							span(mv-multiple="tag" mv-initial-items="0")
+						span(mv-multiple="tag" mv-initial-items="0")
 
-							section
-								span(class="[if(count(task) = 0, 'opacity-0 h-0')]") [count(done)]/[count(task)]
-								span(mv-if="startDate and startDate < $today" title="Spent time") [days($today - startDate)]d
+						section
+							span(class="[if(count(task) = 0, 'opacity-0 h-0')]") [count(done)]/[count(task)]
+							span(mv-if="startDate and startDate < $today" title="Spent time") [days($today - startDate)]d
 
 		div(hidden)
 			select(id="priority")
