@@ -169,13 +169,9 @@ html {
 
     /* Dates section */
     & > section:nth-of-type(2) {
-        display: grid;
-        grid-template-columns: repeat(2, max-content);
-        grid-column-gap: 0.7em;
-
-        @apply my-2;
+        @apply my-2 flex;
         @apply text-sm;
-        @aply cursor-default;
+        @apply cursor-default;
     }
 
     /* Tasks statistics/Spent time section */

@@ -27,8 +27,8 @@ html(lang="en")
 							span(mv-if="count(task) > 0" title="Progress" style="--progress: [progress]") [progress]%
 
 						section
-							time(property="startDate")
-							time(property="dueDate" mv-edit-min="[startDate]" class="[if(dueDate and dueDate <= $today, 'text-red-600', if(!dueDate, 'mv-empty'))]")
+							time(property="startDate" class="[if(!startDate, 'whitespace-no-wrap mv-empty mr-24', 'mr-4')]")
+							time(property="dueDate" mv-edit-min="[if(startDate, startDate)]" class="[if(dueDate and dueDate <= $today, 'text-red-600', if(!dueDate, 'whitespace-no-wrap mv-empty'))]")
 
 						p(property="text" class="markdown")
 
