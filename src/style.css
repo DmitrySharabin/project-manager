@@ -381,8 +381,15 @@ html {
 		content: "#";
     }
 
-    & .mv-add {
+    & > .mv-item-bar {
+        & .mv-add,
+        & .mv-delete {
+            @apply text-indigo-800 bg-indigo-200;
 
+            &:hover {
+                @apply bg-indigo-800;
+            }
+        }
     }
 }
 
