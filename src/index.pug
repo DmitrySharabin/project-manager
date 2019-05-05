@@ -12,7 +12,7 @@ html(lang="en")
 		link(rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png")
 		title Project Manager | Mavo Application
 	body
-		main(mv-app="dashboard" mv-storage="local" mv-plugins="markdown" mv-bar="with import export" mv-init="dashboard.json")
+		main(mv-app="dashboard" mv-storage="local" mv-autosave="10" mv-plugins="markdown" mv-bar="with import export" mv-init="dashboard.json")
 			header(class="mv-bar mv-ui") Dashboard
 			section(mv-multiple="list")
 				aside(class="mv-item-bar")
