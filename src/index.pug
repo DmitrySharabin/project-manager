@@ -55,7 +55,12 @@ html(lang="en")
 							span(mv-if="startDate and startDate < $today" title="Spent time") [days($today - startDate)]d
 
 		footer
-			a(href="https://github.com/DmitrySharabin/project-manager" target="_blank") Fork me on Github
+			p(class="credits")
+				span Photo by
+				a(href="https://unsplash.com/photos/5aiRb5f464A?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank") Jo Szczepanska
+				span on
+				a(href="https://unsplash.com/search/photos/project-management?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank") Unsplash
+			a(href="https://github.com/DmitrySharabin/project-manager" target="_blank" class="fork") Fork me on Github
 
 		div(hidden)
 			select(id="priority")

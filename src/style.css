@@ -8,6 +8,19 @@ html {
     @apply pt-8 bg-indigo-100 overflow-y-hidden;
 }
 
+body {
+    @apply relative;
+
+    &::after {
+        content: "";
+        background: url(bg.jpg);
+        @apply absolute inset-0;
+        @apply bg-no-repeat bg-center bg-cover;
+        opacity: 0.2;
+        z-index: -1;
+    }
+}
+
 [mv-app="dashboard"] {
     display: grid;
     grid-template-rows: auto;
@@ -489,13 +502,26 @@ html {
     }
 }
 
-footer {
+.fork {
     @apply fixed right-0 bottom-0;
     @apply w-64 py-2;
     @apply bg-indigo-800 text-indigo-100;
     @apply text-center;
     z-index: 3;
     transform: rotate(-45deg) translate(4.5em, 0.7em);
+}
+
+.credits {
+    @apply fixed bottom-0 px-2 py-2;
+    @apply text-gray-700 italic font-serif;
+
+    & > a {
+        @apply px-1 font-semibold;
+
+        &:hover {
+            @apply underline;
+        }
+    }
 }
 
 /* Mavo UI */
