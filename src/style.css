@@ -14,7 +14,7 @@ body {
     &::after {
         content: "";
         background: url(bg.jpg);
-        @apply absolute inset-0;
+        @apply fixed inset-0;
         @apply bg-no-repeat bg-center bg-cover;
         opacity: 0.2;
         z-index: -1;

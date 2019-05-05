@@ -1062,7 +1062,7 @@ body {
 body::after {
     content: "";
     background: url(bg.jpg);
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
