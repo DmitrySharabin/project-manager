@@ -561,6 +561,18 @@ img {
   background-color: #3c366b;
 }
 
+.bg-center {
+  background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
 .border-green-300 {
   border-color: #9ae6b4;
 }
@@ -619,6 +631,10 @@ img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.font-serif {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .font-thin {
@@ -845,6 +861,13 @@ img {
   position: relative;
 }
 
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .inset-x-0 {
   right: 0;
   left: 0;
@@ -939,6 +962,10 @@ img {
   font-size: 1.5rem;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -1000,6 +1027,25 @@ html {
   background-color: #ebf4ff;
   overflow-y: hidden;
 }
+
+body {
+  position: relative
+}
+
+body::after {
+    content: "";
+    background: url(bg.jpg);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: -1;
+  }
 
 [mv-app="dashboard"] {
   display: grid;
@@ -1654,7 +1700,7 @@ html {
     max-width: 100%;
   }
 
-footer {
+.fork {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -1668,6 +1714,28 @@ footer {
   -webkit-transform: rotate(-45deg) translate(4.5em, 0.7em);
           transform: rotate(-45deg) translate(4.5em, 0.7em);
 }
+
+.credits {
+  position: fixed;
+  bottom: 0;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: #4a5568;
+  font-style: italic;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif
+}
+
+.credits > a {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    font-weight: 600
+  }
+
+.credits > a:hover {
+      text-decoration: underline;
+    }
 
 /* Mavo UI */
 
