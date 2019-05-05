@@ -33,7 +33,7 @@
 				{
 					"color": "hsl(51, 94%, 75%)",
 					"priority": "no",
-					"text": "Use **Markdown** to:\n- *format* text,\n- insert *images*,\n- *links*,\n- and *lists*.\n![Mavo Logo](https://mavo.io/logo.svg)",
+					"text": "## Use **Markdown**\n- *format* text\n- insert *images*\n- add *links* and *lists* etc.\n![Mavo Logo](https://mavo.io/logo.svg)",
 					"todoList": {
 						"task": []
 					},
@@ -68,8 +68,17 @@
 					"tag": []
 				},
 				{
+					"color": "lemonchiffon",
+					"priority": "normal",
+					"text": "**Prioritize** your tasks.",
+					"todoList": {
+						"task": []
+					},
+					"tag": []
+				},
+				{
 					"color": "hsl(213, 87%, 88%)",
-					"priority": "high",
+					"priority": "no",
 					"text": "Manage your task implementation with the **Checklist** feature.",
 					"todoList": {
 						"task": [
@@ -85,12 +94,30 @@
 							},
 							{
 								"done": false,
-								"title": "Need help? Go to [Mavo](https://mavo.io/) web site",
+								"title": "You can use links even in the lists. E.g., go to [Mavo](https://mavo.io/) web site",
 								"weight": 1
 							}
 						]
 					},
 					"tag": []
+				}
+			]
+		},
+		{
+			"title": "All about Dashboards",
+			"card": [
+				{
+					"color": "white",
+					"colorTag": "Hot! 🔥",
+					"priority": "no",
+					"text": "You can **save** your dashboard, **export** it and share it with your colleagues.\nWant to work with the cards of your colleagues? No problem. Simply **import** their dashboards into your app.",
+					"todoList": {
+						"task": []
+					},
+					"tag": [
+						"Dashboard",
+						"Features"
+					]
 				}
 			]
 		}
