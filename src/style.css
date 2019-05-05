@@ -203,6 +203,10 @@ html {
     }
 }
 
+#colors > option {
+    padding: 10px 5px;
+}
+
 [property="colorTag"] {
     justify-self: start;
 
