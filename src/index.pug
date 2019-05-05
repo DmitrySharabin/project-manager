@@ -51,6 +51,9 @@ html(lang="en")
 							span(class="[if(count(task) = 0, 'opacity-0 h-0')]") [count(done)]/[count(task)]
 							span(mv-if="startDate and startDate < $today" title="Spent time") [days($today - startDate)]d
 
+		footer
+			a(href="#") Fork me on Github
+
 		div(hidden)
 			select(id="priority")
 				option(value="no") No priority

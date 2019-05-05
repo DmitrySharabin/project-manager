@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 html {
-    @apply pt-8 bg-indigo-100;
+    @apply pt-8 bg-indigo-100 overflow-y-hidden;
 }
 
 [mv-app="dashboard"] {
@@ -483,6 +483,15 @@ html {
     & img {
         @apply max-w-full;
     }
+}
+
+footer {
+    @apply fixed right-0 bottom-0;
+    @apply w-64 py-2;
+    @apply bg-indigo-800 text-indigo-100;
+    @apply text-center;
+    z-index: 3;
+    transform: rotate(-45deg) translate(4.5em, 0.7em);
 }
 
 /* Mavo UI */
