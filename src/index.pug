@@ -20,9 +20,13 @@ html(lang="en")
 					h2(property="title")
 					span [count(card)]
 				main
-					article(mv-multiple="card" style="background-color: [color];")
+					article(mv-multiple="card" style="background-color: [color];" mv-mode="[if(isEditing, edit, read)]")
 						aside(class="mv-item-bar")
 							meta(property="color" mv-edit="#colors" title="Change this card color")
+
+						label(style="background-color: [color];")
+							input(property="isEditing" type="checkbox")
+							span [if(isEditing, "Save changes", "Edit card")]
 
 						section
 							span(property="colorTag")
