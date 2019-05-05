@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Kanbanchi-inspired Application made with Mavo",
   "main": "index.js",
-  "author": "Dmitry Sharabin",
+  "repository": "https://github.com/DmitrySharabin/project-manager.git",
+  "author": "Dmitry Sharabin <dmitrysharabin@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^9.5.0",
