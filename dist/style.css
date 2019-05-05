@@ -1293,6 +1293,10 @@ html {
         margin-right: 0.25rem;
       }
 
+#colors > option {
+  padding: 10px 5px;
+}
+
 [property="colorTag"] {
   justify-self: start;
   position: relative;
