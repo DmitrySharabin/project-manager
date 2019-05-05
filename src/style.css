@@ -532,6 +532,10 @@ footer {
     @apply text-sm;
 }
 
+.mv-add-card {
+    @apply mb-8;
+}
+
 .mv-add-list {
     align-self: start;
     justify-self: start;
