@@ -25,7 +25,7 @@ html(lang="en")
 							meta(property="color" mv-edit="#colors" title="Change this card color")
 
 						label(style="background-color: [color];")
-							input(property="isEditing" type="checkbox")
+							input(property="isEditing" type="checkbox" mv-storage="none")
 							span [if(isEditing, "Save changes", "Edit card")]
 
 						section
