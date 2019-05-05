@@ -95,18 +95,14 @@ body {
     @apply relative my-4 px-3 py-4;
     @apply shadow-md rounded;
 
-    /* edit-in-place feature */
+    /* Edit-in-place feature */
     & > label {
         visibility: hidden;
-        @apply absolute inset-x-0 top-0 mx-32 -mt-3 py-1;
-        @apply rounded-t-lg shadow;
+        margin-top: -0.65rem;
+        @apply absolute inset-x-0 top-0 mx-32 py-1;
         @apply text-sm text-center italic;
         @apply cursor-pointer;
-        background-image: radial-gradient(at 50% 100%, theme('colors.gray.500'), transparent 70%);
-        background-position: bottom;
-        background-size: 100% 0.1rem;
-        background-repeat: no-repeat;
-        box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 0 50px rgba(0, 0, 0, 0.1) inset;
 
         & span {
             &::before {

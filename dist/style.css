@@ -589,11 +589,6 @@ img {
   border-radius: 9999px;
 }
 
-.rounded-t-lg {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-}
-
 .border {
   border-width: 1px;
 }
@@ -787,10 +782,6 @@ img {
   margin-right: -0.5rem;
 }
 
-.-mt-3 {
-  margin-top: -0.75rem;
-}
-
 .-ml-3 {
   margin-left: -0.75rem;
 }
@@ -905,11 +896,6 @@ img {
 
 .left-0 {
   left: 0;
-}
-
-.shadow {
-  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .shadow-md {
@@ -1179,30 +1165,21 @@ body::after {
 
 [property="card"] > label {
     visibility: hidden;
+    margin-top: -0.65rem;
     position: absolute;
     right: 0;
     left: 0;
     top: 0;
     margin-left: 8rem;
     margin-right: 8rem;
-    margin-top: -0.75rem;
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     font-size: 0.875rem;
     text-align: center;
     font-style: italic;
     cursor: pointer;
-    background-image: radial-gradient(at 50%, at 100%, #a0aec0, transparent 70%);
-    background-image: radial-gradient(at 50% 100%, #a0aec0, transparent 70%);
-    background-position: bottom;
-    background-size: 100% 0.1rem;
-    background-repeat: no-repeat;
-    -webkit-box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 0 50px rgba(0, 0, 0, 0.1) inset;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 0 50px rgba(0, 0, 0, 0.1) inset
   }
 
 [property="card"] > label span::before {
