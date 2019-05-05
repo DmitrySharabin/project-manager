@@ -10,7 +10,7 @@ Project Management System made with [Mavo](https://mavo.io/). Inspired by [Kanba
 2. `cd` into the newly created folder and run `yarn install` to install the build tools (gulp & gulp plugins) and TailwindCSS
 3. Done!
 
-## Every time you work on Flashcards app
+## Every time you work on Project Manager app
 
 Run `gulp` before making any changes, to automatically build every time you save.
 
