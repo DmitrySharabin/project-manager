@@ -1,0 +1,98 @@
+{
+	"list": [
+		{
+			"title": "Get Started",
+			"card": [
+				{
+					"color": "hsl(51, 94%, 75%)",
+					"priority": "no",
+					"text": "You are now on the **Dashboard**.",
+					"todoList": {
+						"task": []
+					},
+					"tag": []
+				},
+				{
+					"color": "hsl(0, 97%, 85%)",
+					"priority": "no",
+					"text": "Cards can represent tasks or elements of information.",
+					"todoList": {
+						"task": []
+					},
+					"tag": []
+				},
+				{
+					"color": "hsl(179, 69%, 79%)",
+					"priority": "no",
+					"text": "Move your cards between lists with the simple drag and drop.",
+					"todoList": {
+						"task": []
+					},
+					"tag": []
+				},
+				{
+					"color": "hsl(51, 94%, 75%)",
+					"priority": "no",
+					"text": "Use **Markdown** to:\n- *format* text,\n- insert *images*,\n- *links*,\n- and *lists*.\n![Mavo Logo](https://mavo.io/logo.svg)",
+					"todoList": {
+						"task": []
+					},
+					"tag": []
+				}
+			]
+		},
+		{
+			"title": "All about Cards",
+			"card": [
+				{
+					"color": "hsl(213, 87%, 88%)",
+					"colorTag": "Important",
+					"priority": "no",
+					"text": "Emphasise a particular card by using the **Tags**, **Color Tag**, & **Color Fill** features.",
+					"todoList": {
+						"task": []
+					},
+					"tag": [
+						"Card Properties"
+					]
+				},
+				{
+					"color": "hsl(65, 100%, 63%)",
+					"priority": "no",
+					"startDate": "2019-05-01",
+					"dueDate": "2019-05-03",
+					"text": "Set a **Start Date**, and/or **Due Date** for tasks.",
+					"todoList": {
+						"task": []
+					},
+					"tag": []
+				},
+				{
+					"color": "hsl(213, 87%, 88%)",
+					"priority": "high",
+					"text": "Manage your task implementation with the **Checklist** feature.",
+					"todoList": {
+						"task": [
+							{
+								"done": true,
+								"title": "The first step",
+								"weight": 1
+							},
+							{
+								"done": true,
+								"title": "The second one",
+								"weight": 4
+							},
+							{
+								"done": false,
+								"title": "Need help? Go to [Mavo](https://mavo.io/) web site",
+								"weight": 1
+							}
+						]
+					},
+					"tag": []
+				}
+			]
+		}
+	]
+}
