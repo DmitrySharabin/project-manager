@@ -8831,9 +8831,16 @@ body::after {
   }
 
 [property="task"] > aside > section {
-      grid-row: 2;
+      grid-row: 1;
       grid-column: 2;
-      margin-bottom: 0.25rem;
+      justify-self: end;
+      align-self: start;
+      margin-top: 0.12em;
+      margin-right: 0.25rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -8843,7 +8850,17 @@ body::after {
       color: #434190;
       font-size: 0.75rem;
       line-height: 1;
-      cursor: default
+      border-radius: 0.25rem;
+      cursor: default;
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 0 50px rgba(0, 0, 0, 0.08) inset;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 0 50px rgba(0, 0, 0, 0.08) inset
+    }
+
+[property="task"] > aside > section > [property="weight"] {
+        width: 5rem;
+      }
+
+[property="task"] > aside > section {
       /* Weight */
     }
 
@@ -8864,6 +8881,14 @@ body::after {
         color: #c3dafe;
         background-color: #434190;
         border-radius: 9999px;
+      }
+
+[property="task"] > aside {
+    /* Hide weight panel when editing the text */
+  }
+
+[property="task"] > aside.mv-sticky > section:not(:hover) {
+        display: none;
       }
 
 [property="task"] > aside {

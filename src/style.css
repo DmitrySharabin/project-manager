@@ -413,13 +413,23 @@ body {
 
         /* Weight panel */
         & > section {
-            grid-row: 2;
+            grid-row: 1;
             grid-column: 2;
+            justify-self: end;
+            align-self: start;
 
-            @apply mb-1;
+            margin-top: 0.12em;
+
+            @apply mr-1 px-2 py-1;
             @apply flex items-center;
             @apply text-indigo-800 text-xs leading-none;
-            @apply cursor-default;
+            @apply rounded cursor-default;
+
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 0 50px rgba(0, 0, 0, 0.08) inset;
+
+            & > [property="weight"] {
+                @apply w-20;
+            }
 
             /* Weight */
             & > span:nth-child(2) {
@@ -428,6 +438,13 @@ body {
                 @apply text-indigo-200;
                 @apply bg-indigo-800;
                 @apply rounded-full;
+            }
+        }
+
+        /* Hide weight panel when editing the text */
+        &.mv-sticky {
+            & > section:not(:hover) {
+                display: none;
             }
         }
 
