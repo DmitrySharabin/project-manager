@@ -552,7 +552,7 @@ body {
 
 .credits {
     @apply fixed bottom-0 px-2 py-2;
-    @apply text-gray-700 italic font-serif;
+    @apply text-xs text-gray-700;
 
     & > a {
         @apply px-1 font-semibold;
