@@ -55,7 +55,7 @@ html(lang="en")
 						span(mv-multiple="tag" mv-initial-items="0")
 
 						section
-							span(class="[if(count(task) = 0, 'opacity-0 h-0')]") [count(done)]/[count(task)]
+							span(class="[if(count(task) = 0, 'opacity-0 h-0')]" title="Tasks done") [count(done)]/[count(task)]
 							span(mv-if="startDate and startDate < $today" title="Spent time") [days($today - startDate)]d
 
 		footer
