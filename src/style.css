@@ -596,8 +596,14 @@ body {
 
 /* Disable edit-in-place feature in Edit mode */
 [mv-app][mv-mode="edit"] {
-    & [property="card"] > label {
-        display: none;
+    & [property="card"] {
+        & [property="color"] {
+            display: none;
+        }
+
+        &[mv-mode="edit"] [property="color"] {
+            @apply block ml-0 p-0;
+        }
     }
 }
 

@@ -718,6 +718,10 @@ img {
   margin-right: 8rem;
 }
 
+.ml-0 {
+  margin-left: 0;
+}
+
 .mr-1 {
   margin-right: 0.25rem;
 }
@@ -796,6 +800,10 @@ img {
 
 .overflow-y-scroll {
   overflow-y: scroll;
+}
+
+.p-0 {
+  padding: 0;
 }
 
 .py-1 {
@@ -1841,9 +1849,15 @@ body::after {
 
 /* Disable edit-in-place feature in Edit mode */
 
-[mv-app][mv-mode="edit"] [property="card"] > label {
-    display: none;
-  }
+[mv-app][mv-mode="edit"] [property="card"] [property="color"] {
+      display: none;
+    }
+
+[mv-app][mv-mode="edit"] [property="card"][mv-mode="edit"] [property="color"] {
+      display: block;
+      margin-left: 0;
+      padding: 0;
+    }
 
 .mv-message.mv-deleted button:not(.mv-close) {
     background-color: #edf2f7;
