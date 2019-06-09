@@ -40,7 +40,7 @@ html(lang="en")
 						p(property="text" class="markdown")
 
 						section(property="todoList")
-							meta(property="progress" content="[round(sum(weight where task.done) / sum(weight) * 100)]")
+							meta(property="progress" content="[round(sum(weight where done) / sum(weight) * 100)]")
 							ul
 								li(mv-multiple="task" mv-initial-items="0")
 									label
