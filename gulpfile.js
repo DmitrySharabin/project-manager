@@ -21,7 +21,6 @@ function cssTask() {
         .pipe(postcss([
             require('tailwindcss'),
             require('postcss-preset-env')({
-                browsers: 'last 2 versions',
                 stage: 3,
                 features: {
                     'nesting-rules': true
@@ -53,13 +52,11 @@ function buildCSS() {
         .pipe(postcss([
             require('tailwindcss'),
             require('postcss-preset-env')({
-                browsers: 'last 2 versions',
                 features: {
                     'nesting-rules': true
                 }
             }),
             require('autoprefixer')({
-                browsers: ['last 2 versions'],
                 cascade: false
             })
         ]))
