@@ -16,5 +16,7 @@
     "postcss-preset-env": "^6.6.0",
     "tailwindcss": "^1.0.0-beta.8"
   },
-  "browserslist": ["last 2 versions"]
+  "browserslist": [
+    "last 2 versions"
+  ]
 }
