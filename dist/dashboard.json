@@ -52,15 +52,13 @@
 					"todoList": {
 						"task": []
 					},
-					"tag": [
-						"Card Properties"
-					]
+					"tag": ["Card Properties"]
 				},
 				{
 					"color": "hsl(65, 100%, 63%)",
 					"priority": "no",
-					"startDate": "2019-05-01",
-					"dueDate": "2019-05-03",
+					"startDate": "2020-01-01",
+					"dueDate": "2020-02-03",
 					"text": "Set a **Start Date**, and/or **Due Date** for tasks.",
 					"todoList": {
 						"task": []
@@ -114,10 +112,7 @@
 					"todoList": {
 						"task": []
 					},
-					"tag": [
-						"Dashboard",
-						"Features"
-					]
+					"tag": ["Dashboard", "Features"]
 				}
 			]
 		}
