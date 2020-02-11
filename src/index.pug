@@ -6,13 +6,14 @@ html(lang="en")
 		meta(http-equiv="X-UA-Compatible", content="ie=edge")
 		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/mavo/0.2.0/mavo.min.css")
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/mavo/0.2.0/mavo.min.js")
+		script(src="mavo-markdown.js")
 		link(rel="stylesheet", href="style.css")
 		link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
 		link(rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png")
 		link(rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png")
 		title Project Manager | Mavo Application
 	body
-		main(mv-app="dashboard" mv-storage="local" mv-autosave="10" mv-plugins="markdown" mv-bar="with import export" mv-init="dashboard.json")
+		main(mv-app="dashboard" mv-storage="local" mv-autosave="10" mv-bar="with import export" mv-init="dashboard.json")
 			header(class="mv-bar mv-ui") Dashboard
 			section(mv-multiple="list")
 				aside(class="mv-item-bar")
