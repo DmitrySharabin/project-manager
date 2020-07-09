@@ -75,11 +75,6 @@ a {
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
-
-strong {
-  font-weight: bolder;
-}
-
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
@@ -118,7 +113,7 @@ img {
  * 2. Remove the margin in Firefox and Safari.
  */
 
-button,
+
 input,
 select {
   font-family: inherit; /* 1 */
@@ -132,7 +127,7 @@ select {
  * 1. Show the overflow in Edge.
  */
 
-button,
+
 input { /* 1 */
   overflow: visible;
 }
@@ -142,7 +137,7 @@ input { /* 1 */
  * 1. Remove the inheritance of text transform in Firefox.
  */
 
-button,
+
 select { /* 1 */
   text-transform: none;
 }
@@ -151,7 +146,7 @@ select { /* 1 */
  * Correct the inability to style clickable types in iOS and Safari.
  */
 
-button,
+
 [type="button"],
 [type="reset"],
 [type="submit"] {
@@ -162,7 +157,7 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 
-button::-moz-focus-inner,
+
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
@@ -174,7 +169,7 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 
-button:-moz-focusring,
+
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
@@ -191,16 +186,6 @@ button:-moz-focusring,
  * 3. Remove the padding so developers are not caught out when they zero out
  *    `fieldset` elements in all browsers.
  */
-
-legend {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
-}
 
 /**
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
@@ -296,25 +281,6 @@ progress {
  */
 
 /**
- * 1. Prevent padding and border from affecting element width
- * https://goo.gl/pYtbK7
- * 2. Change the default font family in all browsers (opinionated)
- */
-
-html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* 1 */
-  font-family: sans-serif; /* 2 */
-}
-
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-}
-
-/**
  * Removes the default spacing and border for appropriate elements.
  */
 
@@ -329,20 +295,10 @@ p {
   margin: 0;
 }
 
-button {
-  background: transparent;
-  padding: 0;
-}
-
 /**
  * Work around a Firefox/IE bug where the transparent `button` background
  * results in a loss of the default `button` focus styles.
  */
-
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
 
 ol,
 ul {
@@ -356,9 +312,10 @@ ul {
  */
 
 /**
- * 1. Use the system font stack as a sane default.
+ * 1. Use the user's configured `sans` font-family (with Tailwind's default
+ *    sans-serif font stack as a fallback) as a sane default.
  * 2. Use Tailwind's default "normal" line-height so the user isn't forced
- * to override it to ensure consistency even when using the default theme.
+ *    to override it to ensure consistency even when using the default theme.
  */
 
 html {
@@ -367,28 +324,44 @@ html {
 }
 
 /**
- * Allow adding a border to an element by just adding a border-width.
+ * 1. Prevent padding and border from affecting element width.
  *
- * By default, the way the browser specifies that an element should have no
- * border is by setting it's border-style to `none` in the user-agent
- * stylesheet.
+ *    We used to set this in the html element and inherit from
+ *    the parent element for everything else. This caused issues
+ *    in shadow-dom-enhanced elements like <details> where the content
+ *    is wrapped by a div with box-sizing set to `content-box`.
  *
- * In order to easily add borders to elements by just setting the `border-width`
- * property, we change the default border-style for all elements to `solid`, and
- * use border-width to hide them instead. This way our `border` utilities only
- * need to set the `border-width` property instead of the entire `border`
- * shorthand, making our border utilities much more straightforward to compose.
+ *    https://github.com/mozdevs/cssremedy/issues/4
  *
- * https://github.com/tailwindcss/tailwindcss/pull/116
+ *
+ * 2. Allow adding a border to an element by just adding a border-width.
+ *
+ *    By default, the way the browser specifies that an element should have no
+ *    border is by setting it's border-style to `none` in the user-agent
+ *    stylesheet.
+ *
+ *    In order to easily add borders to elements by just setting the `border-width`
+ *    property, we change the default border-style for all elements to `solid`, and
+ *    use border-width to hide them instead. This way our `border` utilities only
+ *    need to set the `border-width` property instead of the entire `border`
+ *    shorthand, making our border utilities much more straightforward to compose.
+ *
+ *    https://github.com/tailwindcss/tailwindcss/pull/116
  */
 
 *,
-*::before,
-*::after {
-  border-width: 0;
-  border-style: solid;
-  border-color: #e2e8f0;
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: #e2e8f0; /* 2 */
 }
+
+/*
+ * Ensure horizontal rules are visible by default
+ */
 
 /**
  * Undo the `border-style: none` reset that Normalize applies to images so that
@@ -405,31 +378,26 @@ img {
 }
 
 input::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.5;
+  color: #a0aec0;
 }
 
 input::-moz-placeholder {
-  color: inherit;
-  opacity: 0.5;
+  color: #a0aec0;
 }
 
 input:-ms-input-placeholder {
-  color: inherit;
-  opacity: 0.5;
+  color: #a0aec0;
 }
 
 input::-ms-input-placeholder {
-  color: inherit;
-  opacity: 0.5;
+  color: #a0aec0;
 }
 
 input::placeholder {
-  color: inherit;
-  opacity: 0.5;
+  color: #a0aec0;
 }
 
-button,
+
 [role="button"] {
   cursor: pointer;
 }
@@ -462,7 +430,7 @@ a {
  * normalize.css.
  */
 
-button,
+
 input,
 select {
   padding: 0;
@@ -491,8 +459,7 @@ code {
  */
 
 img,
-svg,
-canvas {
+svg {
   display: block;
   vertical-align: middle;
 }
@@ -510,59 +477,101 @@ img {
 }
 
 .bg-white {
+  --bg-opacity: 1;
   background-color: #fff;
+  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
 .bg-gray-100 {
+  --bg-opacity: 1;
   background-color: #f7fafc;
+  background-color: rgba(247, 250, 252, 1);
+  background-color: rgba(247, 250, 252, var(--bg-opacity));
 }
 
 .bg-gray-200 {
+  --bg-opacity: 1;
   background-color: #edf2f7;
+  background-color: rgba(237, 242, 247, 1);
+  background-color: rgba(237, 242, 247, var(--bg-opacity));
 }
 
 .bg-gray-700 {
+  --bg-opacity: 1;
   background-color: #4a5568;
+  background-color: rgba(74, 85, 104, 1);
+  background-color: rgba(74, 85, 104, var(--bg-opacity));
 }
 
 .bg-red-700 {
+  --bg-opacity: 1;
   background-color: #c53030;
+  background-color: rgba(197, 48, 48, 1);
+  background-color: rgba(197, 48, 48, var(--bg-opacity));
 }
 
 .bg-teal-500 {
+  --bg-opacity: 1;
   background-color: #38b2ac;
+  background-color: rgba(56, 178, 172, 1);
+  background-color: rgba(56, 178, 172, var(--bg-opacity));
 }
 
 .bg-teal-600 {
+  --bg-opacity: 1;
   background-color: #319795;
+  background-color: rgba(49, 151, 149, 1);
+  background-color: rgba(49, 151, 149, var(--bg-opacity));
 }
 
 .bg-teal-800 {
+  --bg-opacity: 1;
   background-color: #285e61;
+  background-color: rgba(40, 94, 97, 1);
+  background-color: rgba(40, 94, 97, var(--bg-opacity));
 }
 
 .bg-blue-500 {
+  --bg-opacity: 1;
   background-color: #4299e1;
+  background-color: rgba(66, 153, 225, 1);
+  background-color: rgba(66, 153, 225, var(--bg-opacity));
 }
 
 .bg-blue-600 {
+  --bg-opacity: 1;
   background-color: #3182ce;
+  background-color: rgba(49, 130, 206, 1);
+  background-color: rgba(49, 130, 206, var(--bg-opacity));
 }
 
 .bg-indigo-100 {
+  --bg-opacity: 1;
   background-color: #ebf4ff;
+  background-color: rgba(235, 244, 255, 1);
+  background-color: rgba(235, 244, 255, var(--bg-opacity));
 }
 
 .bg-indigo-200 {
+  --bg-opacity: 1;
   background-color: #c3dafe;
+  background-color: rgba(195, 218, 254, 1);
+  background-color: rgba(195, 218, 254, var(--bg-opacity));
 }
 
 .bg-indigo-800 {
+  --bg-opacity: 1;
   background-color: #434190;
+  background-color: rgba(67, 65, 144, 1);
+  background-color: rgba(67, 65, 144, var(--bg-opacity));
 }
 
 .bg-indigo-900 {
+  --bg-opacity: 1;
   background-color: #3c366b;
+  background-color: rgba(60, 54, 107, 1);
+  background-color: rgba(60, 54, 107, var(--bg-opacity));
 }
 
 .bg-center {
@@ -578,7 +587,9 @@ img {
 }
 
 .border-green-300 {
+  --border-opacity: 1;
   border-color: #9ae6b4;
+  border-color: rgba(154, 230, 180, var(--border-opacity));
 }
 
 .rounded {
@@ -613,6 +624,10 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 .hidden {
@@ -671,6 +686,30 @@ img {
 
 .h-screen {
   height: 100vh;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-base {
+  font-size: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
 }
 
 .leading-none {
@@ -908,67 +947,63 @@ img {
 }
 
 .text-white {
+  --text-opacity: 1;
   color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
 }
 
 .text-gray-700 {
+  --text-opacity: 1;
   color: #4a5568;
+  color: rgba(74, 85, 104, var(--text-opacity));
 }
 
 .text-red-600 {
+  --text-opacity: 1;
   color: #e53e3e;
+  color: rgba(229, 62, 62, var(--text-opacity));
 }
 
 .text-green-700 {
+  --text-opacity: 1;
   color: #2f855a;
+  color: rgba(47, 133, 90, var(--text-opacity));
 }
 
 .text-teal-100 {
+  --text-opacity: 1;
   color: #e6fffa;
+  color: rgba(230, 255, 250, var(--text-opacity));
 }
 
 .text-blue-100 {
+  --text-opacity: 1;
   color: #ebf8ff;
+  color: rgba(235, 248, 255, var(--text-opacity));
 }
 
 .text-blue-600 {
+  --text-opacity: 1;
   color: #3182ce;
+  color: rgba(49, 130, 206, var(--text-opacity));
 }
 
 .text-indigo-100 {
+  --text-opacity: 1;
   color: #ebf4ff;
+  color: rgba(235, 244, 255, var(--text-opacity));
 }
 
 .text-indigo-200 {
+  --text-opacity: 1;
   color: #c3dafe;
+  color: rgba(195, 218, 254, var(--text-opacity));
 }
 
 .text-indigo-800 {
+  --text-opacity: 1;
   color: #434190;
-}
-
-.text-xs {
-  font-size: 0.75rem;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-}
-
-.text-base {
-  font-size: 1rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
+  color: rgba(67, 65, 144, var(--text-opacity));
 }
 
 .italic {
@@ -1041,7 +1076,10 @@ img {
 
 html {
   padding-top: 2rem;
+  --bg-opacity: 1;
   background-color: #ebf4ff;
+  background-color: rgba(235, 244, 255, 1);
+  background-color: rgba(235, 244, 255, var(--bg-opacity));
   overflow-y: hidden;
 }
 
@@ -1117,7 +1155,10 @@ body::after {
               mask-size: cover;
       width: 1.25rem;
       height: 1.25rem;
+      --bg-opacity: 1;
       background-color: #285e61;
+      background-color: rgba(40, 94, 97, 1);
+      background-color: rgba(40, 94, 97, var(--bg-opacity));
     }
 
 [property="list"] > aside .mv-drag-handle {
@@ -1129,7 +1170,10 @@ body::after {
               mask-size: cover;
       width: 1.25rem;
       height: 1.25rem;
+      --bg-opacity: 1;
       background-color: #285e61;
+      background-color: rgba(40, 94, 97, 1);
+      background-color: rgba(40, 94, 97, var(--bg-opacity));
     }
 
 [property="list"] > aside .mv-add {
@@ -1142,7 +1186,10 @@ body::after {
       width: 1.25rem;
       height: 1.25rem;
       margin-right: 1rem;
+      --bg-opacity: 1;
       background-color: #285e61;
+      background-color: rgba(40, 94, 97, 1);
+      background-color: rgba(40, 94, 97, var(--bg-opacity));
     }
 
 [property="list"] > aside {
@@ -1197,7 +1244,10 @@ body::after {
         height: 1rem;
         margin-right: 0.5rem;
         vertical-align: middle;
+        --bg-opacity: 1;
         background-color: #4a5568;
+        background-color: rgba(74, 85, 104, 1);
+        background-color: rgba(74, 85, 104, var(--bg-opacity));
       }
 
 [property="card"] > label > [type="checkbox"] {
@@ -1254,7 +1304,10 @@ body::after {
               mask-size: cover;
       width: 1.25rem;
       height: 1.25rem;
+      --bg-opacity: 1;
       background-color: #434190;
+      background-color: rgba(67, 65, 144, 1);
+      background-color: rgba(67, 65, 144, var(--bg-opacity));
     }
 
 [property="card"] > aside .mv-drag-handle {
@@ -1266,7 +1319,10 @@ body::after {
               mask-size: cover;
       width: 1.25rem;
       height: 1.25rem;
+      --bg-opacity: 1;
       background-color: #434190;
+      background-color: rgba(67, 65, 144, 1);
+      background-color: rgba(67, 65, 144, var(--bg-opacity));
     }
 
 [property="card"] > aside .mv-add {
@@ -1279,7 +1335,10 @@ body::after {
       width: 1.25rem;
       height: 1.25rem;
       margin-right: 1rem;
+      --bg-opacity: 1;
       background-color: #434190;
+      background-color: rgba(67, 65, 144, 1);
+      background-color: rgba(67, 65, 144, var(--bg-opacity));
     }
 
 [property="card"] > aside {
@@ -1316,11 +1375,18 @@ body::after {
               align-items: center;
       width: 4.6rem;
       font-size: 0.875rem;
+      --text-opacity: 1;
       color: #2f855a;
+      color: rgba(47, 133, 90, var(--text-opacity));
       font-weight: 500;
       border-width: 1px;
+      --border-opacity: 1;
       border-color: #9ae6b4;
+      border-color: rgba(154, 230, 180, var(--border-opacity));
+      --bg-opacity: 1;
       background-color: #f7fafc;
+      background-color: rgba(247, 250, 252, 1);
+      background-color: rgba(247, 250, 252, var(--bg-opacity));
       border-radius: 9999px;
       /* Fix hover effect of the priority */
       z-index: 1;
@@ -1424,8 +1490,13 @@ body::after {
   padding-bottom: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25;
+  --text-opacity: 1;
   color: #fff;
-  background-color: #c53030
+  color: rgba(255, 255, 255, var(--text-opacity));
+  --bg-opacity: 1;
+  background-color: #c53030;
+  background-color: rgba(197, 48, 48, 1);
+  background-color: rgba(197, 48, 48, var(--bg-opacity))
 }
 
 [property="colorTag"]::after {
@@ -1507,7 +1578,10 @@ body::after {
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center;
+      --bg-opacity: 1;
       background-color: #fff;
+      background-color: rgba(255, 255, 255, 1);
+      background-color: rgba(255, 255, 255, var(--bg-opacity));
     }
 
 [property="priority"]:not([mv-mode="edit"])::after {
@@ -1593,7 +1667,9 @@ body::after {
   }
 
 [property="task"] [property="done"]:checked ~ [property="title"] {
+        --text-opacity: 1;
         color: #4a5568;
+        color: rgba(74, 85, 104, var(--text-opacity));
         text-decoration: line-through;
       }
 
@@ -1626,7 +1702,9 @@ body::after {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
+      --text-opacity: 1;
       color: #434190;
+      color: rgba(67, 65, 144, var(--text-opacity));
       font-size: 0.75rem;
       line-height: 1;
       border-radius: 0.25rem;
@@ -1657,8 +1735,13 @@ body::after {
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
+        --text-opacity: 1;
         color: #c3dafe;
+        color: rgba(195, 218, 254, var(--text-opacity));
+        --bg-opacity: 1;
         background-color: #434190;
+        background-color: rgba(67, 65, 144, 1);
+        background-color: rgba(67, 65, 144, var(--bg-opacity));
         border-radius: 9999px;
       }
 
@@ -1684,7 +1767,10 @@ body::after {
       margin-top: 0.35em;
       width: 1.25rem;
       height: 1.25rem;
+      --bg-opacity: 1;
       background-color: #434190;
+      background-color: rgba(67, 65, 144, 1);
+      background-color: rgba(67, 65, 144, var(--bg-opacity));
     }
 
 [property="task"] > aside .mv-drag-handle {
@@ -1697,7 +1783,10 @@ body::after {
       margin-top: 0.35em;
       width: 1.25rem;
       height: 1.25rem;
+      --bg-opacity: 1;
       background-color: #3c366b;
+      background-color: rgba(60, 54, 107, 1);
+      background-color: rgba(60, 54, 107, var(--bg-opacity));
     }
 
 [property="task"]:not([mv-mode="edit"]) {
@@ -1724,16 +1813,26 @@ body::after {
 
 [property="tag"] > .mv-item-bar .mv-add,
         [property="tag"] > .mv-item-bar .mv-delete {
+      --text-opacity: 1;
       color: #434190;
-      background-color: #c3dafe
+      color: rgba(67, 65, 144, var(--text-opacity));
+      --bg-opacity: 1;
+      background-color: #c3dafe;
+      background-color: rgba(195, 218, 254, 1);
+      background-color: rgba(195, 218, 254, var(--bg-opacity))
     }
 
 [property="tag"] > .mv-item-bar .mv-add:hover, [property="tag"] > .mv-item-bar .mv-delete:hover {
+        --bg-opacity: 1;
         background-color: #434190;
+        background-color: rgba(67, 65, 144, 1);
+        background-color: rgba(67, 65, 144, var(--bg-opacity));
       }
 
 .markdown a {
+    --text-opacity: 1;
     color: #3182ce;
+    color: rgba(49, 130, 206, var(--text-opacity));
     font-weight: 600;
     text-decoration: none
   }
@@ -1779,8 +1878,13 @@ body::after {
 .markdown code {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
+    --text-opacity: 1;
     color: #4a5568;
+    color: rgba(74, 85, 104, var(--text-opacity));
+    --bg-opacity: 1;
     background-color: #f7fafc;
+    background-color: rgba(247, 250, 252, 1);
+    background-color: rgba(247, 250, 252, var(--bg-opacity));
     border-radius: 0.25rem;
     border-width: 1px;
   }
@@ -1802,8 +1906,13 @@ body::after {
   width: 16rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  --bg-opacity: 1;
   background-color: #434190;
+  background-color: rgba(67, 65, 144, 1);
+  background-color: rgba(67, 65, 144, var(--bg-opacity));
+  --text-opacity: 1;
   color: #ebf4ff;
+  color: rgba(235, 244, 255, var(--text-opacity));
   text-align: center;
   z-index: 3;
   -webkit-transform: rotate(-45deg) translate(4.5em, 0.7em);
@@ -1818,7 +1927,9 @@ body::after {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-size: 0.75rem;
-  color: #4a5568
+  --text-opacity: 1;
+  color: #4a5568;
+  color: rgba(74, 85, 104, var(--text-opacity))
 }
 
 .credits > a {
@@ -1838,7 +1949,10 @@ body::after {
   right: 0;
   left: 0;
   top: 0;
+  --bg-opacity: 1;
   background-color: #3c366b;
+  background-color: rgba(60, 54, 107, 1);
+  background-color: rgba(60, 54, 107, var(--bg-opacity));
 }
 
 /* Hide color property in read mode: fix edit card in place issue */
@@ -1859,12 +1973,6 @@ body::after {
       padding: 0;
     }
 
-.mv-message.mv-deleted button:not(.mv-close) {
-    background-color: #edf2f7;
-    border-width: 1px;
-    border-radius: 0.25rem;
-  }
-
 .mv-add-tag,
 .mv-add-task,
 .mv-add-card,
@@ -1875,12 +1983,20 @@ body::after {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   border-radius: 0.25rem;
+  --text-opacity: 1;
   color: #ebf8ff;
-  background-color: #3182ce
+  color: rgba(235, 248, 255, var(--text-opacity));
+  --bg-opacity: 1;
+  background-color: #3182ce;
+  background-color: rgba(49, 130, 206, 1);
+  background-color: rgba(49, 130, 206, var(--bg-opacity))
 }
 
 .mv-add-tag:hover, .mv-add-task:hover, .mv-add-card:hover, .mv-add-list:hover {
+    --bg-opacity: 1;
     background-color: #4299e1;
+    background-color: rgba(66, 153, 225, 1);
+    background-color: rgba(66, 153, 225, var(--bg-opacity));
   }
 
 .mv-add-tag::before, .mv-add-task::before, .mv-add-card::before, .mv-add-list::before {
@@ -1907,10 +2023,18 @@ body::after {
   justify-self: start;
   margin-left: 0.75rem;
   margin-top: 1.5rem;
+  --text-opacity: 1;
   color: #e6fffa;
-  background-color: #319795
+  color: rgba(230, 255, 250, var(--text-opacity));
+  --bg-opacity: 1;
+  background-color: #319795;
+  background-color: rgba(49, 151, 149, 1);
+  background-color: rgba(49, 151, 149, var(--bg-opacity))
 }
 
 .mv-add-list:hover {
+    --bg-opacity: 1;
     background-color: #38b2ac;
+    background-color: rgba(56, 178, 172, 1);
+    background-color: rgba(56, 178, 172, var(--bg-opacity));
   }
