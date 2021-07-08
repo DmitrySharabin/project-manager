@@ -1,6 +1,6 @@
 {
   "name": "mavo-kanbanchi-clone",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Kanbanchi-inspired Application made with Mavo",
   "main": "index.js",
   "repository": "https://github.com/DmitrySharabin/project-manager.git",

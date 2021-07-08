@@ -4,8 +4,8 @@ html(lang="en")
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		meta(http-equiv="X-UA-Compatible", content="ie=edge")
-		link(rel="stylesheet", href="https://get.mavo.io/mavo.min.css")
-		script(src="https://get.mavo.io/mavo.min.js")
+		link(rel="stylesheet", href="https://get.mavo.io/v0.2/mavo.min.css")
+		script(src="https://get.mavo.io/v0.2/mavo.es5.min.js")
 		link(rel="stylesheet", href="style.css")
 		link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
 		link(rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png")
@@ -22,7 +22,7 @@ html(lang="en")
 				main
 					article(mv-multiple="card" style="background-color: [color];" mv-mode="[if(isEditing, edit, read)]")
 						aside(class="mv-item-bar")
-							meta(property="color" mv-edit="#colors" title="Change this card color")
+							meta(property="color" mv-editor="#colors" title="Change this card color")
 
 						label
 							input(property="isEditing" type="checkbox" mv-storage="none")
@@ -30,12 +30,12 @@ html(lang="en")
 
 						section
 							span(property="colorTag")
-							span(property="priority" mv-edit="#priority" title="Priority" data-first-letter="[uppercase(get(priority, 0))]" class="[priority]")
+							span(property="priority" mv-editor="#priority" title="Priority" data-first-letter="[uppercase(get(priority, 0))]" class="[priority]")
 							span(mv-if="count(task) > 0" title="Progress" style="--progress: [progress]") [progress]%
 
 						section
 							time(property="startDate" class="[if(!startDate, 'whitespace-no-wrap mv-empty mr-24', 'mr-4')]")
-							time(property="dueDate" mv-edit-min="[if(startDate, startDate)]" class="[if(dueDate and dueDate <= $today, 'text-red-600', if(!dueDate, 'whitespace-no-wrap mv-empty'))]")
+							time(property="dueDate" mv-editor-min="[if(startDate, startDate)]" class="[if(dueDate and dueDate <= $today, 'text-red-600', if(!dueDate, 'whitespace-no-wrap mv-empty'))]")
 
 						p(property="text" class="markdown")
 
